@@ -54,7 +54,7 @@
 					<p>You can view all activities and modify activities published
 						by you.</p>
 					<form class="form-search" action="showmember" method='get'>
-						<input name='search_vip' type="text" style="width:500px; float:left;" placeholder="VIP name"
+						<input name='search_vip' type="text" style="width:500px; float:left;" placeholder="Activity Name"
 							class="form-control">
 						<!-- <button type="submit" style="float:right" class="btn btn-lg btn-primary delete">Search</button> -->
 						<s:a cssClass="btn btn-lg btn-primary view"
