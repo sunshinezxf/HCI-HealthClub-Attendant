@@ -53,6 +53,16 @@
 					</h1>
 					<p>You can view all activities and modify activities published
 						by you.</p>
+					<form class="form-search" action="showmember" method='get'>
+						<input name='search_vip' type="text" style="width:500px; float:left;" placeholder="VIP name"
+							class="form-control">
+						<!-- <button type="submit" style="float:right" class="btn btn-lg btn-primary delete">Search</button> -->
+						<s:a cssClass="btn btn-lg btn-primary view"
+									action="requestmodifyactivity" namespace="/action">
+									<s:param name="a_id" value="%{#session.attendant.a_id}"></s:param>
+									<s:param name="ac_id"
+										value="5"></s:param>Search</s:a>
+					</form>
 				</s:div>
 				<s:div cssClass="layout module">
 					<%

@@ -116,8 +116,8 @@
 			<result name="failure">/attendant/failure.jsp</result>
 		</action>
 		<action name="addactivity" class="action.AddActivity">
-			<result name="success">/attendant/showactivity.jsp</result>
-			<result name="failure">/attendant/showactivity.jsp</result>
+			<result name="success">/attendant/success.jsp</result>
+			<result name="failure">/attendant/failure.jsp</result>
 		</action>
 		<action name="sumvip" class="action.SumVIP">
 			<result name="success">/manager/vipview.jsp</result>
