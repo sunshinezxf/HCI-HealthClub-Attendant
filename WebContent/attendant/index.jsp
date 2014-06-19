@@ -26,7 +26,7 @@
 	<s:div cssClass="navbar navbar-inverse navbar-fixed-top">
 		<s:div cssClass="container">
 			<s:div cssClass="navbar-header">
-				<a href="<s:url value="/index.jsp"></s:url>"><img alt="logo"
+				<a><img alt="logo"
 					src="<s:url value="/material/HealthClub.png"></s:url>" /></a>
 			</s:div>
 			<s:div cssClass="collapse navbar-collapse">

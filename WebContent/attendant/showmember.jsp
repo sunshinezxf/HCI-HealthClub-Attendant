@@ -28,7 +28,7 @@
 	<s:div cssClass="navbar navbar-inverse navbar-fixed-top">
 		<s:div cssClass="container">
 			<s:div cssClass="navbar-header">
-				<a href="<s:url value="/index.jsp"></s:url>"><img alt="logo"
+				<a><img alt="logo"
 					src="<s:url value="/material/HealthClub.png"></s:url>" /></a>
 			</s:div>
 			<s:div cssClass="collapse navbar-collapse">
@@ -54,13 +54,13 @@
 					</h1>
 					<p>You can view all member's information here.</p>
 					<form class="form-search" action="showmember" method='get'>
-						<input name='search_vip' type="text" style="width:500px; float:left;" placeholder="VIP name"
+						<input name='search_vip' type="text"
+							style="width: 500px; float: left;" placeholder="VIP name"
 							class="form-control">
 						<!-- <button type="submit" style="float:right" class="btn btn-lg btn-primary delete">Search</button> -->
 						<s:a cssClass="btn btn-lg btn-primary view" action="viewmember"
-									namespace="/action">
-									<s:param name="v_id"
-										value="1"></s:param>Search</s:a>
+							namespace="/action">
+							<s:param name="v_id" value="1"></s:param>Search</s:a>
 					</form>
 					<br>
 				</div>
@@ -140,7 +140,8 @@
 								<s:param name="page" value="#request.pageBean.totalPage"></s:param>Last</s:a>
 						</s:if>
 						<s:else></s:else>
-						<span class="totalpage"> <s:property
+						<span class="totalpage"><s:property
+								value="%{#request.pageBean.currentPage}" />/<s:property
 								value="%{#request.pageBean.totalPage}" /> &nbsp;pages in total
 						</span>
 					</div>

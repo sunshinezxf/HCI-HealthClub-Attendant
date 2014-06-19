@@ -21,7 +21,7 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="<s:url value="/index.jsp"></s:url>"><img alt="logo"
+				<a><img alt="logo"
 					src="<s:url value="/material/HealthClub.png"></s:url>" /></a>
 			</div>
 		</div>
@@ -31,15 +31,26 @@
 		<hr>
 		<s:form cssClass="form-register" action="attendantlogin" name="login"
 			method="post" namespace="/action">
-			<span>Hello, Attendant, Please input your login username and
-				password</span>
-			<input type="text" class="form-control" placeholder="Attendant No."
-				name="username" />
-			<input type="password" class="form-control" placeholder="password"
-				name="password" />
-			<button class="btn btn-lg btn-primary btn-block button-commit"
-				type="submit">Login</button>
+			<span>Please input your login username and password</span>
+			<s:div cssClass="box">
+				<input type="text" class="form-control"
+					placeholder="Login Attendant Name" name="username" id="username"
+					onchange=checkUsername() autofocus="autofocus" />
+				<span id="username_span" class="right_span"></span>
+			</s:div>
+			<s:div cssClass="box">
+				<input type="password" class="form-control"
+					placeholder="Login Attendant Password" name="password"
+					id="password" oninput=checkPassword() />
+				<span id="passwd_span"></span>
+			</s:div>
+			<button class="btn btn-lg btn-primary btn-block button-commit login"
+				disabled="disabled" type="submit" id="lgbtn">Login</button>
 		</s:form>
 	</div>
+	<script src="<s:url value="/js/validate/login_validate.js"></s:url>"
+		type="text/javascript">
+		
+	</script>
 </body>
 </html>

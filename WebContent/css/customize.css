@@ -7,7 +7,7 @@
 }
 
 .grid-layout {
-	width: 95%;
+	width: 75%;
 	position: relative;
 	background-color: #ffffdf;
 	opacity: 0.85;
@@ -50,15 +50,20 @@
 }
 
 .form-register input[type="text"] {
+	float: left;
 	margin: 10px;
 	border-radius: 3px;
+	width: 70%;
 }
 
 .form-register input[type="password"] {
+	float: left;
 	margin: 10px;
 	border-radius: 3px;
+	width: 70%;
 }
 
+}
 .form-register-gender {
 	float: left;
 	width: 10%;
@@ -146,4 +151,21 @@ footer {
 	text-align: right;
 	float: right;
 	color: grey;
+}
+
+.box {
+	width: 100%;
+}
+
+.right_span {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	float: left;
+	margin: 10px;
+}
+
+.login {
+	width: 70%;
 }
