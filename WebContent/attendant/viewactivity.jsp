@@ -113,7 +113,16 @@
 										<s:property value="%{#request.record.get(#st.index).username}" />
 										&nbsp; Coach No:
 										<s:property value="%{#request.record.get(#st.index).co_no}" />
-										&nbsp; Attended: <input type="checkbox" />
+										&nbsp;
+										<s:if test="#request.record.get(#st.index).attended == true">attended</s:if>
+										<s:else>
+											<s:a action="confirmattend">
+												<s:param name="v_id"
+													value="#request.record.get(#st.index).v_id"></s:param>
+												<s:param name="ac_id"
+													value="#request.record.get(#st.index).ac_id"></s:param>Confirm Attend
+											</s:a>
+										</s:else>
 									</h5>
 								</s:iterator>
 							</s:div>

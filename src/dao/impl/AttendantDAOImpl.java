@@ -444,6 +444,27 @@ public class AttendantDAOImpl implements AttendantDAO {
 		return list;
 	}
 
+	@Override
+	public boolean confirmAttend(int v_id, int ac_id) {
+		Connection connection = baseDAO.getConnection();
+		String sql = "update choose set attended = true where v_id = ? and ac_id = ?";
+		PreparedStatement ps = null;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, v_id);
+			ps.setInt(2, ac_id);
+			int count = ps.executeUpdate();
+			if (count > 0)
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			baseDAO.closePreparedStatement(ps);
+			baseDAO.closeConnection(connection);
+		}
+		return false;
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<VIP> queryByPage(String sql, int offset, int pageSize) {

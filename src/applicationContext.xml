@@ -64,6 +64,11 @@
 			<ref bean="AttendantService" />
 		</property>
 	</bean>
+	<bean id="ConfirmAttend" class="action.ConfirmAttend">
+		<property name="AttendantService">
+			<ref bean="AttendantService" />
+		</property>
+	</bean>
 	<bean id="RequestModifyActivity" class="action.RequestModifyActivity">
 		<property name="AttendantService">
 			<ref bean="AttendantService" />

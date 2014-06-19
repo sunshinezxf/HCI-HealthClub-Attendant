@@ -29,4 +29,6 @@ public interface AttendantDAO {
 	public ArrayList<VIP> queryByPage(String sql, int offset, int pageSize);
 	
 	public int getAllRowCount(String sql);
+	
+	public boolean confirmAttend(int v_id, int ac_id);
 }

@@ -86,7 +86,7 @@
 						<div class="information">
 							<h4>Cellphone:&nbsp;</h4>
 							<input type="text" class="form-control"
-								value=<%=vip.getPhone().getNo()%> name="phone">
+								value=<%=vip.getCellPhone().getNo()%> name="phone">
 						</div>
 						<div class="information">
 							<h4>Age:&nbsp;</h4>

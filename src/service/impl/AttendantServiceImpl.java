@@ -79,4 +79,9 @@ public class AttendantServiceImpl implements AttendantService {
 
 		return pageBean;
 	}
+
+	@Override
+	public boolean confirmAttend(int v_id, int ac_id) {
+		return attendantDAO.confirmAttend(v_id, ac_id);
+	}
 }

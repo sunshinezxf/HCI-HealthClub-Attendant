@@ -72,11 +72,11 @@
 							<%=vip.getName()%></h4>
 						<h4>
 							Gender:
-							<%=(vip.getGender() == Gender.MALE) ? "male"
+							<%=(vip.getGenderType() == Gender.MALE) ? "male"
 										: "female"%></h4>
 						<h4>
 							Cellphone:
-							<%=vip.getPhone().getNo()%></h4>
+							<%=vip.getCellPhone().getNo()%></h4>
 						<h4>
 							Age:
 							<%=vip.getAge()%></h4>

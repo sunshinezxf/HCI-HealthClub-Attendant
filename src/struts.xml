@@ -103,6 +103,10 @@
 		<action name="requestmodifyactivity" class="RequestModifyActivity">
 			<result name="success">/attendant/viewactivity.jsp</result>
 		</action>
+		<action name="confirmattend" class="ConfirmAttend">
+			<result name="success">/attendant/viewactivity.jsp</result>
+			<result name="failure">/attendant/failure.jsp</result>
+		</action>
 		<action name="modifyactivity" class=""></action>
 		<action name="requestaddactivity" class="RequestAddActivity">
 			<result name="success">/attendant/addactivity.jsp</result>

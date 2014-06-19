@@ -14,18 +14,20 @@ public interface AttendantService {
 	public ArrayList<VIP> getVIPList();
 
 	public VIP check(int v_id);
-	
+
 	public boolean addActivity(Activity activity);
-	
+
 	public ArrayList<Activity> checkActivities(int a_id);
-	
+
 	public boolean update(VIP vip);
-	
+
 	public boolean deleteVIP(int v_id);
-	
+
 	public Activity viewActivity(int ac_id);
-	
+
+	public boolean confirmAttend(int v_id, int ac_id);
+
 	public ArrayList<ActivityRecord> getRecord(int ac_id);
-	
+
 	public PageBean getPageBean(int pageSize, int page);
 }
