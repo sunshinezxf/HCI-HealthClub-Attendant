@@ -52,7 +52,18 @@
 						Hello,&nbsp;<%=attendant.getName()%>!
 					</h1>
 					<p>You can view all member's information here.</p>
+					<form class="form-search" action="showmember" method='get'>
+						<input name='search_vip' type="text" style="width:500px; float:left;" placeholder="VIP name"
+							class="form-control">
+						<!-- <button type="submit" style="float:right" class="btn btn-lg btn-primary delete">Search</button> -->
+						<s:a cssClass="btn btn-lg btn-primary view" action="viewmember"
+									namespace="/action">
+									<s:param name="v_id"
+										value="1"></s:param>Search</s:a>
+					</form>
 				</div>
+
+
 				<div class="layout module">
 					<%
 						@SuppressWarnings("unchecked")

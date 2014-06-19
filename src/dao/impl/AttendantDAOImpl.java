@@ -254,7 +254,7 @@ public class AttendantDAOImpl implements AttendantDAO {
 
 	public ArrayList<Activity> checkActivities(int a_id) {
 		Connection connection = baseDAO.getConnection();
-		String sql = "select * from activity where a_id = ?";
+		String sql = "select * from activity where a_id = ? order by start";
 		PreparedStatement ps_1 = null;
 		ResultSet rs_1 = null;
 		ArrayList<Activity> activityList = new ArrayList<Activity>();
