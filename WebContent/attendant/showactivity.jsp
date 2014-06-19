@@ -63,6 +63,7 @@
 									<s:param name="ac_id"
 										value="5"></s:param>Search</s:a>
 					</form>
+					<br>
 				</s:div>
 				<s:div cssClass="layout module">
 					<%
