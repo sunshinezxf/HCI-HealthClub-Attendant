@@ -73,8 +73,14 @@
 							</s:div>
 						</s:div>
 						<br>
-						<input type="text" class="form-control" placeholder="Coach No"
-							name="co_no" />
+						<!-- <input type="text" class="form-control" placeholder="Coach No"
+							name="co_no" /> -->
+						<input type="hidden" name="co_no" value="10000"/>
+						<select class="form-control">
+  							<option value ="10000">10000</option>
+							<option value ="10001">10001</option>
+  							<option value="10002">10002</option>
+						</select>
 						<br>
 						<button class="btn btn-primary btn-lg" type="submit">Publish</button>
 					</s:form>
