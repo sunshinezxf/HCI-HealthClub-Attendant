@@ -23,6 +23,10 @@ public interface AttendantDAO {
 	public boolean deleteVIP(int v_id);
 
 	public Activity view(int ac_id);
-	
+
 	public ArrayList<ActivityRecord> getRecord(int ac_id);
+
+	public ArrayList<VIP> queryByPage(String sql, int offset, int pageSize);
+	
+	public int getAllRowCount(String sql);
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.Activity;
 import model.Attendant;
+import model.PageBean;
 import model.VIP;
 import model.record.ActivityRecord;
 
@@ -25,4 +26,6 @@ public interface AttendantService {
 	public Activity viewActivity(int ac_id);
 	
 	public ArrayList<ActivityRecord> getRecord(int ac_id);
+	
+	public PageBean getPageBean(int pageSize, int page);
 }

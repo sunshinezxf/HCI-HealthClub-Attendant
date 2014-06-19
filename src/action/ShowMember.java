@@ -1,14 +1,13 @@
 package action;
 
-import java.util.ArrayList;
-
-import model.VIP;
+import model.PageBean;
 import service.AttendantService;
 
 @SuppressWarnings("serial")
 public class ShowMember extends BaseAction {
 	private String a_id;
 	private AttendantService attendantService;
+	private String page = "0";
 
 	public AttendantService getAttendantService() {
 		return attendantService;
@@ -19,8 +18,9 @@ public class ShowMember extends BaseAction {
 	}
 
 	public String execute() throws Exception {
-		ArrayList<VIP> vipList = attendantService.getVIPList();
-		request.setAttribute("vipList", vipList);
+		int cur = Integer.parseInt(page);
+		PageBean pageBean = attendantService.getPageBean(2, cur);
+		request.setAttribute("pageBean", pageBean);
 		return "success";
 	}
 
@@ -30,5 +30,13 @@ public class ShowMember extends BaseAction {
 
 	public void setA_id(String a_id) {
 		this.a_id = a_id;
+	}
+
+	public String getPage() {
+		return page;
+	}
+
+	public void setPage(String page) {
+		this.page = page;
 	}
 }

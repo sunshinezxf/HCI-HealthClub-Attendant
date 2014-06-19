@@ -140,3 +140,9 @@ footer {
 .form-activity {
 	margin: 5px;
 }
+
+.totalpage {
+	text-align: right;
+	float: right;
+	color: grey;
+}

@@ -19,6 +19,12 @@ import model.card.HomeVIPCard;
 import model.card.SingleVIPCard;
 import model.card.VIPCard;
 import model.record.ActivityRecord;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import util.HibernateUtil;
 import dao.AttendantDAO;
 import dao.BaseDAO;
 
@@ -110,8 +116,8 @@ public class AttendantDAOImpl implements AttendantDAO {
 				vip.setV_id(v_id);
 				vip.setUsername(username);
 				vip.setName(name);
-				vip.setGender(gender);
-				vip.setPhone(phone);
+				vip.setGenderType(gender);
+				vip.setCellPhone(phone);
 				vip.setAge(age);
 				vip.setPassword(password);
 				vipList.add(vip);
@@ -204,8 +210,8 @@ public class AttendantDAOImpl implements AttendantDAO {
 				vip.setV_id(v_id);
 				vip.setUsername(username);
 				vip.setName(name);
-				vip.setGender(gender);
-				vip.setPhone(phone);
+				vip.setGenderType(gender);
+				vip.setCellPhone(phone);
 				vip.setAge(age);
 				vip.setAddress(address);
 				vip.setPassword(password);
@@ -327,9 +333,9 @@ public class AttendantDAOImpl implements AttendantDAO {
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, vip.getName());
-			ps.setString(2, (vip.getGender() == Gender.MALE) ? "male"
+			ps.setString(2, (vip.getGenderType() == Gender.MALE) ? "male"
 					: "female");
-			ps.setString(3, vip.getPhone().getNo());
+			ps.setString(3, vip.getCellPhone().getNo());
 			ps.setInt(4, vip.getAge());
 			ps.setString(5, vip.getCreditCard().getCr_no());
 			ps.setString(6, vip.getAddress());
@@ -436,5 +442,49 @@ public class AttendantDAOImpl implements AttendantDAO {
 			baseDAO.closeConnection(connection);
 		}
 		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<VIP> queryByPage(String sql, int offset, int pageSize) {
+		Session session = HibernateUtil.openSession();
+		Transaction ts = null;
+		ArrayList<VIP> list = null;
+		try {
+			ts = session.beginTransaction();
+			Query query = session.createQuery(sql).setFirstResult(offset)
+					.setMaxResults(pageSize);
+			list = (ArrayList<VIP>) query.list();
+			ts.commit();
+		} catch (Exception e) {
+			if (ts != null) {
+				ts.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			HibernateUtil.closeSession(session);
+		}
+		return list;
+	}
+
+	@Override
+	public int getAllRowCount(String sql) {
+		Session session = HibernateUtil.openSession();
+		Transaction ts = null;
+		int allRows = 0;
+		try {
+			ts = session.beginTransaction();
+			Query query = session.createQuery(sql);
+			allRows = query.list().size();
+			ts.commit();
+		} catch (Exception e) {
+			if (ts != null) {
+				ts.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			HibernateUtil.closeSession(session);
+		}
+		return allRows;
 	}
 }

@@ -1,3 +1,4 @@
+<%@page import="model.PageBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.VIP"%>
 <%@page import="model.Attendant"%>
@@ -56,51 +57,81 @@
 				<div class="layout module">
 					<%
 						@SuppressWarnings("unchecked")
-									ArrayList<VIP> list = (ArrayList<VIP>) request
-											.getAttribute("vipList");
-									if (list == null) {
+									PageBean pageBean = (PageBean) request
+											.getAttribute("pageBean");
+									ArrayList<VIP> list = pageBean.getList();
+									if (list.size() == 0) {
 					%>
 					<h3>Oops, there is no one registered to the Health
 						Club.&gt;&lt;</h3>
 					<%
 						} else {
-										int size = list.size();
+										int size = pageBean.getAllRows();
 					%>
 					<h3>
 						<%=size%>
 						<%=(size == 1) ? "user is" : "users are"%>
 						registered to the Health Club.
 					</h3>
-					<s:iterator value="%{#request.vipList}" status="st">
+					<s:iterator value="%{#request.pageBean.list}" status="st">
 						<div class="card">
-							<s:iterator value="%{#request.vipList.get(#st.index)}">
+							<s:iterator value="%{#request.pageBean.list.get(#st.index)}">
 								<s:a cssClass="btn btn-lg btn-primary view" action="viewmember"
 									namespace="/action">
 									<s:param name="v_id"
-										value="%{#request.vipList.get(#st.index).v_id}"></s:param>View</s:a>
+										value="%{#request.pageBean.list.get(#st.index).v_id}"></s:param>View</s:a>
 								<h4>
 									Username:
-									<s:property value="%{#request.vipList.get(#st.index).username}" />
+									<s:property
+										value="%{#request.pageBean.list.get(#st.index).username}" />
 								</h4>
 								<h4>
 									Name:
-									<s:property value="%{#request.vipList.get(#st.index).name}" />
+									<s:property
+										value="%{#request.pageBean.list.get(#st.index).name}" />
 								</h4>
 								<h4>
 									Gender:
-									<s:property value="%{#request.vipList.get(#st.index).gender}" />
+									<s:property
+										value="%{#request.pageBean.list.get(#st.index).gender}" />
 								</h4>
 								<h4>
 									Phone:
-									<s:property value="%{#request.vipList.get(#st.index).phone.no}" />
+									<s:property
+										value="%{#request.pageBean.list.get(#st.index).phone}" />
 								</h4>
 								<h4>
 									Age:
-									<s:property value="%{#request.vipList.get(#st.index).age}" />
+									<s:property
+										value="%{#request.pageBean.list.get(#st.index).age}" />
 								</h4>
 							</s:iterator>
 						</div>
 					</s:iterator>
+					<div>
+						<s:if test="#request.pageBean.currentPage == 1"></s:if>
+						<s:else>
+							<s:a action="showmember" namespace="/action">
+								<s:param name="page" value="0"></s:param>First</s:a>
+							&nbsp; &nbsp; 
+							<s:a action="showmember" namespace="/action">
+								<s:param name="page" value="#request.pageBean.currentPage - 1"></s:param>Previous</s:a>
+								&nbsp; &nbsp;
+						</s:else>
+
+						<s:if
+							test="#request.pageBean.currentPage != #request.pageBean.totalPage">
+							<s:a action="showmember" namespace="/action">
+								<s:param name="page" value="#request.pageBean.currentPage + 1"></s:param>Next</s:a>
+							&nbsp; &nbsp;
+							<s:a action="showmember" namespace="/action">
+								<s:param name="page" value="#request.pageBean.totalPage"></s:param>Last</s:a>
+						</s:if>
+						<s:else></s:else>
+						<span class="totalpage"> <s:property
+								value="%{#request.pageBean.totalPage}" /> &nbsp;pages in total
+						</span>
+					</div>
 					<%
 						}
 					%>

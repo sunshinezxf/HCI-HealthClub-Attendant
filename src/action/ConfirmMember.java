@@ -29,8 +29,8 @@ public class ConfirmMember extends BaseAction{
 		VIP vip = new VIP();
 		vip.setUsername(username);
 		vip.setName(name);
-		vip.setGender((gender.equals("male")) ? Gender.MALE : Gender.FEMALE);
-		vip.setPhone(new Phone(phone));
+		vip.setGenderType((gender.equals("male")) ? Gender.MALE : Gender.FEMALE);
+		vip.setCellPhone(new Phone(phone));
 		vip.setAge(Integer.parseInt(age));
 		vip.setAddress(address);
 		vip.setCreditCard(new CreditCard(cr_no));

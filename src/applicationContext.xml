@@ -34,7 +34,7 @@
 			<ref bean="CardService" />
 		</property>
 	</bean>
-	<bean id="RemoveCard" class="action.RemoveCard">
+	<bean id="action.RemoveCard" class="action.RemoveCard">
 		<property name="CardService">
 			<ref bean="CardService" />
 		</property>
