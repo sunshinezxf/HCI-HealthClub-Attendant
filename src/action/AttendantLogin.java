@@ -1,6 +1,7 @@
 package action;
 
 import model.Attendant;
+import model.Prompt;
 import service.AttendantService;
 
 @SuppressWarnings("serial")
@@ -21,6 +22,8 @@ public class AttendantLogin extends BaseAction {
 	public String execute() throws Exception {
 		Attendant attendant = attendantService.login(username, password);
 		if (attendant == null) {
+			Prompt prompt = new Prompt(false, "Username or Password incorrect");
+			request.setAttribute("prompt", prompt);
 			return "failure";
 		} else {
 			session.put("attendant", attendant);

@@ -69,7 +69,7 @@
 	width: 10%;
 }
 
-.form-register input[type="radio"] {
+.form-register [type="radio"] {
 	cursor: pointer;
 	margin: 10px;
 	padding: 10px;
@@ -168,4 +168,27 @@ footer {
 
 .login {
 	width: 70%;
+}
+
+.date-input-group,.date-form-control {
+	width: 80%;
+	margin-bottom: 0;
+	display: table cell;
+}
+
+.date-form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.date-input-sm {
+	height: 30px;
+	padding: 5px 10px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 5px;
 }

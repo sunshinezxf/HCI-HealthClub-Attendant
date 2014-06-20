@@ -1,3 +1,4 @@
+<%@page import="model.Prompt"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -28,6 +29,24 @@
 	</div>
 	<div class="grid-layout module">
 		<strong>Login</strong>
+		<%
+			Prompt prompt = (Prompt) request.getAttribute("prompt");
+			if (prompt != null) {
+				if (prompt.getState() == true) {
+		%>
+		<div class="alert alert-success">
+			<h1><%=prompt.getMessage()%></h1>
+		</div>
+		<%
+			} else {
+		%>
+		<div class="alert alert-danger">
+			<h1><%=prompt.getMessage()%></h1>
+		</div>
+		<%
+			}
+			}
+		%>
 		<hr>
 		<s:form cssClass="form-register" action="attendantlogin" name="login"
 			method="post" namespace="/action">
@@ -52,5 +71,6 @@
 		type="text/javascript">
 		
 	</script>
+	<footer class="container">&copy; Health Club&#8482;,&nbsp;2014</footer>
 </body>
 </html>
